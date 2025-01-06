@@ -5,7 +5,7 @@ import datetime
 from .models import UserData
 
 error_messages = {
-    "frist_name": error_code_1001,
+    "first_name": error_code_1001,
     "email": error_code_1003,
     "user_type": error_code_1005,
   
@@ -13,8 +13,11 @@ error_messages = {
 
 def validate_required(value, field_name):
     if not value:
+        print("yeah none")
+        # import pdb; pdb.set_trace()
         raise ValidationError(error_messages[field_name]())
 def validate_first_name(name):
+    print("name",name)
     validate_required(name,"first_name")
     
     if not name or len(name.strip()) < 2 or len(name.strip()) > 100:
@@ -44,10 +47,10 @@ def validate_phone_number(phone_number):
 def validatea_last_name(last_name):
     if last_name:
         if len(last_name.strip()) < 2 or len(last_name.strip()) > 100:
-            raise ValidationError(error_code_1008())
+           raise ValidationError(error_code_1008())
 def validate_dob(dob):
     if dob:
-        try:
-            date_object = datetime(dob, '%Y-%m-%d')
-        except ValueError:
+        pattern = r"^(20[0-9]{2})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$"
+        if not re.match(pattern, dob):
             raise ValidationError(error_code_1009())
+        
