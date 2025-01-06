@@ -24,10 +24,9 @@ class UserRegistrationView(APIView):
             validate_phone_number(phone_number)
             validate_user_type(user_type)   
                      
-            import pdb;pdb.set_trace()        
             user = UserData.objects.create_user(
                 email=email,
-                password=make_password(password),
+                password=password,
                 first_name=first_name,
                 last_name=last_name,
                 phone_number=phone_number,
