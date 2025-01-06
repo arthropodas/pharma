@@ -68,7 +68,7 @@ class UserData(AbstractUser):
     objects = UserManager()
 
     USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = ["first_name","email","user_type","password"]
+    REQUIRED_FIELDS = ["first_name","user_type"]
 
     class Meta:
         db_table = "users"

@@ -1,5 +1,5 @@
 from rest_framework.exceptions import ValidationError
-from api.utils.error_messages import error_code_1001,error_code_1002,error_code_1003,error_code_1004,error_code_1005, error_code_1006, error_code_1007, error_code_1008, error_code_1009, error_code_1010
+from api.utils.error_messages import error_code_1001,error_code_1002,error_code_1003,error_code_1004,error_code_1005, error_code_1006, error_code_1007, error_code_1008, error_code_1009, error_code_1010, error_code_1011,error_code_1012
 import re
 import datetime
 from .models import UserData
@@ -8,6 +8,7 @@ error_messages = {
     "first_name": error_code_1001,
     "email": error_code_1003,
     "user_type": error_code_1005,
+    "password": error_code_1011
   
 }
 
@@ -23,14 +24,17 @@ def validate_first_name(name):
     if not name or len(name.strip()) < 2 or len(name.strip()) > 100:
         raise ValidationError(error_code_1002())
 
-def validate_email(email):
+def validate_email(email,register):
     validate_required(email,"email")
     email_regex = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
+    
+   
     if not re.match(email_regex, email):
         raise ValidationError(error_code_1004())
     email = UserData.objects.filter(email=email).first()
-    if email:
-        raise ValidationError(error_code_1010())
+    if register:
+        if email:
+            raise ValidationError(error_code_1010())
     
 def validate_user_type(user_type):
     if not user_type:
@@ -53,4 +57,16 @@ def validate_dob(dob):
         pattern = r"^(20[0-9]{2})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$"
         if not re.match(pattern, dob):
             raise ValidationError(error_code_1009())
-        
+
+def validate_password(password):
+    # Check if password is provided
+    if not password:
+        raise ValidationError("Password is required")
+
+  
+    PASSWORD_REGEX = r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&])[A-Za-z\d@$!%?&]{8,}$"
+
+    # Check if password matches the regex
+    if not re.match(PASSWORD_REGEX, password):
+        raise ValidationError("Password must be at least 8 characters long, and include at least one lowercase letter, one uppercase letter, one digit, and one special character (@$!%?&).")
+    

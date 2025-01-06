@@ -25,3 +25,15 @@ def error_code_1009():
 
 def error_code_1010():
     return {'errorCode': "E1010", "errorMsg": "email already exists"}
+
+def error_code_1011():
+    return {'errorCode': "E1011", "errorMsg": "password is required"}
+
+def error_code_1012():
+    return {'errorCode': "E1012", "errorMsg": "password must be at least 8 characters minimum one digit, small and capital letter, special character"}
+
+def error_code_e401():
+    return {'errorCode': "E401", "errorMsg": "Invalid credentials"}
+
+def error_code_e402():
+    return {'errorCode': "E402", "errorMsg": "Invalid token"}
