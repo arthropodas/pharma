@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 from decouple import config
+from datetime import timedelta
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -39,6 +41,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'user_management',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    "rest_framework_simplejwt",
+    
 ]
 
 MIDDLEWARE = [
@@ -49,9 +57,17 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
+AUTHENTICATION_BACKENDS = ['api.utils.authenticate.EmailBackend']
+
 ROOT_URLCONF = 'api.urls'
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    )
+}
 
 TEMPLATES = [
     {
@@ -71,7 +87,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'api.wsgi.application'
 
-
+AUTH_USER_MODEL = 'user_management.UserData'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
@@ -87,7 +103,10 @@ DATABASES = {
         
     }
 }   
-
+SIMPLE_JWT = {
+   "ACCESS_TOKEN_LIFETIME": timedelta(days=int(config('ACCESS_TOKEN_LIFETIME'))),
+   "REFRESH_TOKEN_LIFETIME": timedelta(days=int(config('REFRESH_TOKEN_LIFETIME'))),
+}
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
