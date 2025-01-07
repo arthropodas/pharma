@@ -16,6 +16,7 @@ from django.contrib.auth import authenticate
 from google.auth.transport import requests
 from .validators import validate_dob, validate_email, validate_first_name, validate_phone_number, validatea_last_name, validate_password
 from api.utils.error_messages import error_code_e401,error_code_e402
+from api.utils.middlewares import CustomIsAuthenticated
 class UserRegistrationView(APIView):
     def post(self, request):
         try:
@@ -186,4 +187,15 @@ class GoogleLoginView(APIView):
         except Exception as e:
             print(f"Error: {e}")
             return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
-    
+
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from api.utils.permissions import IsStaff
+
+class AddStaffView(APIView):
+    authentication_classes = (CustomIsAuthenticated,)  # Ensure you have your custom auth here
+    permission_classes = (IsStaff,)  # Apply the IsStaff permission class here
+
+    def post(self, request, *args, **kwargs):
+        return Response({"success": True}, status=status.HTTP_200_OK)

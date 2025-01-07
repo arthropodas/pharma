@@ -37,3 +37,9 @@ def error_code_e401():
 
 def error_code_e402():
     return {'errorCode': "E402", "errorMsg": "Invalid token"}
+
+def error_code_e403():
+    return {
+        "errorCode": "e403",
+        "errorMsg": "access-token is invalid",
+    }
