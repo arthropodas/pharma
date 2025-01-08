@@ -7,7 +7,7 @@ urlpatterns = [
           UserRegistrationView.as_view(), name='user_registration'),
      path("google_login/",GoogleLoginView.as_view(), name='google_login'),
       path('login/', UserLoginAPIView.as_view(), name='token_obtain_pair'),
-    path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
+    path('refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
     path('staff/add/',AddStaffView.as_view(), name='staff_add'),
           
 

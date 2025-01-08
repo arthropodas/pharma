@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     "rest_framework_simplejwt",
+    "branch_management"
     
 ]
 
@@ -100,6 +101,7 @@ DATABASES = {
         "PASSWORD": config("DB_PASSWORD"),
         "HOST": config("HOST"),
         "PORT": config("PORT"),
+
         
     }
 }   
@@ -137,7 +139,7 @@ USE_I18N = True
 
 USE_TZ = True
 
-
+CORS_ALLOWED_ORIGINS = [config('CLIENT_URL')]
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 

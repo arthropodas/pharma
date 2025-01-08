@@ -46,13 +46,23 @@ class UserData(AbstractUser):
         (OWNER, "shop owner"),
         (STAFF, "staff in the branch"),
     )
+    MALE = 1
+    FEMALE = 2
+    OTHERS = 3
+    
+    GENTER_TYPE_CHOICES = (
+        (MALE, "Male"),
+        (FEMALE, "Female"),
+        (OTHERS, "Others"),
+    )
 
     last_login = None
     is_superuser = None
     is_staff = None
     username = None
     first_name = models.CharField(max_length=100)
-    gender = models.CharField(max_length=6, null=True)
+    password = models.CharField(max_length=128, null=True, blank=True)
+    gender = models.IntegerField(choices=GENTER_TYPE_CHOICES, null=True)
     last_name = models.CharField(max_length=100,null=True, blank=True)
     dob = models.DateField(null=True, blank=True)
     email = models.EmailField(max_length=100, unique=True)
