@@ -1,3 +1,14 @@
+def error_code_e401():
+    return {'errorCode': "E401", "errorMsg": "Invalid credentials"}
+
+def error_code_e402():
+    return {'errorCode': "E402", "errorMsg": "Invalid token"}
+
+def error_code_e403():
+    return {
+        "errorCode": "e403",
+        "errorMsg": "access-token is invalid",
+    }
 def error_code_1001():
     return {'errorCode': "E1001", "errorMsg": "First name is required"}
 def error_code_1002():
@@ -12,7 +23,7 @@ def error_code_1004():
 def error_code_1005():
     return {'errorCode': "E1005", "errorMsg": "user type is required."}
 def error_code_1006():
-    return {'errorCode': "E1006", "errorMsg": "Invalid user type. Allowed values are 1 (ADMIN), 2 (OWNER), or 3 (STAFF)."}
+    return {'errorCode': "E1006", "errorMsg": "Invalid gender. Allowed values are 1 (MALE), 2 (FEMALE), or 3 (OTHERS)."}
 
 def error_code_1007():
     return {'errorCode': "E1007", "errorMsg": "Invalid phone number"}
@@ -32,8 +43,8 @@ def error_code_1011():
 def error_code_1012():
     return {'errorCode': "E1012", "errorMsg": "password must be at least 8 characters minimum one digit, small and capital letter, special character"}
 
-def error_code_e401():
-    return {'errorCode': "E401", "errorMsg": "Invalid credentials"}
+def error_code_1013():
+    return {'errorCode': "E1013", "errorMsg": "Invalid profile picture format. Only jpeg, jpg, and png formats are allowed."
 
-def error_code_e402():
-    return {'errorCode': "E402", "errorMsg": "Invalid token"}
+def error_code_1014():
+    return {'errorCode': "E1014", "errorMsg": "Invalid profile picture size. Profile picture size should not exceed 2MB."}

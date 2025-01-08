@@ -1,5 +1,5 @@
 from rest_framework.exceptions import ValidationError
-from api.utils.error_messages import error_code_1001,error_code_1002,error_code_1003,error_code_1004,error_code_1005, error_code_1006, error_code_1007, error_code_1008, error_code_1009, error_code_1010, error_code_1011,error_code_1012
+from api.utils.error_messages import error_code_1001,error_code_1002,error_code_1003,error_code_1004,error_code_1005, error_code_1006, error_code_1007, error_code_1008, error_code_1009, error_code_1010, error_code_1011,error_code_1012, error_code_1013, error_code_1014
 import re
 import datetime
 from .models import UserData
@@ -36,12 +36,11 @@ def validate_email(email,register):
         if email:
             raise ValidationError(error_code_1010())
     
-def validate_user_type(user_type):
-    if not user_type:
-        raise ValidationError(error_code_1005())
-    allowed_types = {1, 2, 3}  # ADMIN, OWNER, STAFF
-    if user_type not in allowed_types:
-        raise ValidationError(error_code_1006())    
+def validate_gender(gender):
+    if gender:
+        allowed_types = {1, 2, 3}  # ADMIN, OWNER, STAFF
+        if gender not in allowed_types:
+            raise ValidationError(error_code_1006())
 
 def validate_phone_number(phone_number):
     if phone_number:
@@ -61,12 +60,24 @@ def validate_dob(dob):
 def validate_password(password):
     # Check if password is provided
     if not password:
-        raise ValidationError("Password is required")
+        raise ValidationError(error_code_1011())
 
   
     PASSWORD_REGEX = r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&])[A-Za-z\d@$!%?&]{8,}$"
 
     # Check if password matches the regex
     if not re.match(PASSWORD_REGEX, password):
-        raise ValidationError("Password must be at least 8 characters long, and include at least one lowercase letter, one uppercase letter, one digit, and one special character (@$!%?&).")
-    
+        raise ValidationError(error_code_1012())
+
+def validate_profile_image(profile_image):
+    allowed_content_types = ["jpeg", "jpg", "png"]
+
+        if profile_image.content_type.split("/")[1].lower() not in allowed_content_types:
+            raise ValidationError(error_code_1013())
+
+        max_file_size = 2 * 1024 * 1024
+
+        if profile_image.size > max_file_size:
+            raise ValidationError(error_code_1014())
+
+        return None
