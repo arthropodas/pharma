@@ -44,7 +44,24 @@ def error_code_1012():
     return {'errorCode': "E1012", "errorMsg": "password must be at least 8 characters minimum one digit, small and capital letter, special character"}
 
 def error_code_1013():
-    return {'errorCode': "E1013", "errorMsg": "Invalid profile picture format. Only jpeg, jpg, and png formats are allowed."
+    return {'errorCode': "E1013", "errorMsg": "Invalid profile picture format. Only jpeg, jpg, and png formats are allowed."}
 
 def error_code_1014():
     return {'errorCode': "E1014", "errorMsg": "Invalid profile picture size. Profile picture size should not exceed 2MB."}
+
+def error_code_1015():
+    return {'errorCode': "E1015", "errorMsg": "ownerId is required"}
+
+def error_code_1016():
+    return {'errorCode': "E1015", "errorMsg": "Invalid ownerId"}
+
+def error_code_1017():
+    return {'errorCode': "E1017", "errorMsg": "owner not found"}
+def error_code_2001():
+    return {'errorCode': "E2001", "errorMsg": "branchName is required"}
+
+def error_code_2002():
+    return {'errorCode': "E2002", "errorMsg": "Invalid branchName"}
+
+
+
