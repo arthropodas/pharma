@@ -1,18 +1,22 @@
-def error_code_e401():
+def error_code_401():
     return {'errorCode': "E401", "errorMsg": "Invalid credentials"}
 
-def error_code_e402():
+def error_code_402():
     return {'errorCode': "E402", "errorMsg": "Invalid token"}
 
-def error_code_e403():
+def error_code_403():
     return {
-        "errorCode": "e403",
-        "errorMsg": "access-token is invalid",
+        "errorCode": "E403",
+        "errorMsg": "token is required",
     }
+def error_code_404():
+    return {'errorCode': "E404", "errorMsg": "token expired"}
+def error_code_405():
+    return {'errorCode': "E405", "errorMsg": "you have no permission to perform this action"}
 def error_code_1001():
     return {'errorCode': "E1001", "errorMsg": "First name is required"}
 def error_code_1002():
-    return {'errorCode': "E1002", "errorMsg": "First name must be between 2 and 100 characters."}
+    return {'errorCode': "E1002", "errorMsg": "First name must be between 2 and 100 characters and only allow letters and spaces."}
 
 def error_code_1003():
     return {'errorCode': "E1003", "errorMsg": "email is required"}
@@ -57,6 +61,20 @@ def error_code_1016():
 
 def error_code_1017():
     return {'errorCode': "E1017", "errorMsg": "owner not found"}
+
+def error_code_1018():
+    return {'errorCode': "E1018", "errorMsg": "currentPassword is required"}
+
+def error_code_1019():
+    return {'errorCode': "E1019", "errorMsg": "currentPassword must be at least 8 characters minimum one digit, small and capital letter, special character"}
+
+def error_code_1020():
+    return {'errorCode': "E1020", "errorMsg": "newPassword is required"}
+
+def error_code_1021():
+    return {'errorCode': "E1021", "errorMsg": "newPassword must be at least 8 characters minimum one digit, small and capital letter, special character"}
+
+
 def error_code_2001():
     return {'errorCode': "E2001", "errorMsg": "branchName is required"}
 
@@ -64,4 +82,6 @@ def error_code_2002():
     return {'errorCode': "E2002", "errorMsg": "Invalid branchName"}
 
 
+def error_code_2003():
+    return {'errorCode': "E2003", "errorMsg": "Branch not found"}
 

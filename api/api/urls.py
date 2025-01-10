@@ -16,10 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-
+BASE_URL = 'pharma/'
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('user/',include('user_management.urls')),
-    path('branch/', include('branch_management.urls')),
-
+    path(BASE_URL,include('user_management.urls'), name='user_management'),
+    path(BASE_URL, include('branch_management.urls'),name='branch_management'),
 ]
