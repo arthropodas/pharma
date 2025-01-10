@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-gbjfrtbssdz55mwodm0rnzfhqkcm46dymm8d0nb34(0en+apyo'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -59,6 +59,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware',
+
+   
 ]
 
 AUTHENTICATION_BACKENDS = ['api.utils.authenticate.EmailBackend']
@@ -138,14 +140,22 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
+BASE_URL = config('BASE_URL')
 CORS_ALLOWED_ORIGINS = [config('CLIENT_URL')]
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
-
+APP_NAME = config("APP_NAME")
+RESET_TOKEN_EXPIRY = config("RESET_TOKEN_EXPIRY")
+SECRET_KEY = config("SECRET_KEY")
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587  
+EMAIL_USE_TLS = True  
+EMAIL_HOST_USER= "recruitdemo768@gmail.com"
+EMAIL_HOST_PASSWORD= "dtsm dpvb fved whxr"
