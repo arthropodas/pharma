@@ -88,7 +88,7 @@ def validate_dob(dob):
             raise ValidationError(error_code_1009())
 
 
-def validate_password(password, field_name):
+def validate_password(password):
     # Error codes mapping based on field name
     error_codes = {
         "password": {
