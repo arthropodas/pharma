@@ -1,0 +1,16 @@
+export const LimePallet = {
+  lime900: '#0C1200',
+  lime800: '#182400',
+  lime700: '#294000',
+  lime600: '#3D5E00',
+  lime500: '#558200',
+  lime400: '#78AD17',
+  lime300: '#A6D453',
+  lime200: '#C6EB81',
+  lime100: '#E0F7B5',
+  lime50: '#F2FAE3',
+  limeBrilliant600: '#6FAB00',
+  limeBrilliant500: '#85CC00',
+  limeBrilliant400: '#C0FA55',
+  limeBrilliant300: '#EFFFD1',
+};

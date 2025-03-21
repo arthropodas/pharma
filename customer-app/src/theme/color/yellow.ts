@@ -1,0 +1,16 @@
+export const YellowPallet = {
+  yellow900: '#171000',
+  yellow800: '#291D00',
+  yellow700: '#453100',
+  yellow600: '#6B4B00',
+  yellow500: '#996B00',
+  yellow400: '#C79112',
+  yellow300: '#E5B645',
+  yellow200: '#FAD47A',
+  yellow100: '#FAE6B6',
+  yellow50: '#FCF4E1',
+  yellowBrilliant600: '#BFA000',
+  yellowBrilliant500: '#DEB900',
+  yellowBrilliant400: '#FFE35C',
+  yellowBrilliant300: '#FFF7CE',
+};

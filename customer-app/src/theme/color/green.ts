@@ -1,0 +1,16 @@
+export const GreenPallet = {
+  green900: '#00170C',
+  green800: '#042616',
+  green700: '#073D23',
+  green600: '#125C39',
+  green500: '#1F784F',
+  green400: '#38A16F',
+  green300: '#6DD1A2',
+  green200: '#95EDC5',
+  green100: '#C3F7E0',
+  green50: '#E8FCF3',
+  greenBrilliant600: '#009E54',
+  greenBrilliant500: '#0BBF6A',
+  greenBrilliant400: '#62F5B0',
+  greenBrilliant300: '#D6FFEB',
+};

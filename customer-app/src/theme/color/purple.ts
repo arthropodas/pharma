@@ -1,0 +1,16 @@
+export const PurplePallet = {
+  purple900: '#12011F',
+  purple800: '#220238',
+  purple700: '#38065C',
+  purple600: '#4E0980',
+  purple500: '#761AB8',
+  purple400: '#9B49D6',
+  purple300: '#BD7FEB',
+  purple200: '#D9B0F7',
+  purple100: '#EDD7FD',
+  purple50: '#F5EBFC',
+  purpleBrilliant600: '#6A00B5',
+  purpleBrilliant500: '#7F00D9',
+  purpleBrilliant400: '#C26BFF',
+  purpleBrilliant300: '#F1DEFF',
+};
